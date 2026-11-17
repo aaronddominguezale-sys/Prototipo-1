@@ -1,0 +1,96 @@
+/* PawCare — diseño responsive */
+:root {
+    --verde: #267653; --verde-oscuro: #174b36; --verde-claro: #e8f5ed;
+    --menta: #f4faf6; --texto: #20352a; --suave: #66786d; --borde: #dce8df;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0; font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--texto); background: radial-gradient(ellipse at top left, #dff2e5, transparent 38rem), var(--menta);
+    line-height: 1.6;
+}
+.encabezado {
+    position: relative; overflow: hidden; padding: 48px 20px 54px; text-align: center;
+    color: white; background: linear-gradient(135deg, #1d6042, #328b60);
+}
+.encabezado::after {
+    content: ""; position: absolute; width: 300px; height: 300px; border: 1px solid #ffffff26;
+    border-radius: 50%; right: -90px; top: -175px; box-shadow: 0 0 0 35px #ffffff09, 0 0 0 75px #ffffff08;
+}
+.encabezado h1 { position: relative; z-index: 1; margin: 0; font-size: clamp(2.2rem, 5vw, 3.25rem); letter-spacing: -1.5px; line-height: 1.15; }
+.encabezado p { position: relative; z-index: 1; margin: 12px 0 0; color: #e1f4e7; font-size: 1.05rem; }
+.contenedor { width: min(920px, 92%); margin: 32px auto 46px; }
+.tarjeta {
+    margin-bottom: 24px; padding: clamp(20px, 4vw, 32px); border: 1px solid #dce8dfe6;
+    border-radius: 20px; background: white; box-shadow: 0 14px 36px #1c4a300f;
+}
+.tarjeta h2 { margin: 0 0 20px; color: var(--verde-oscuro); font-size: clamp(1.25rem, 3vw, 1.55rem); letter-spacing: -.35px; }
+.tarjeta > p { margin-top: -10px; margin-bottom: 16px; color: var(--suave); }
+.campo { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+.campo:last-child { margin-bottom: 0; }
+.campo label { color: #314b3b; font-size: .95rem; font-weight: 650; }
+input, select, textarea {
+    width: 100%; min-height: 47px; padding: 12px 14px; border: 1px solid #cedbd1;
+    border-radius: 11px; background: #fcfefc; color: var(--texto); font: inherit;
+    transition: border-color .2s, box-shadow .2s;
+}
+textarea { min-height: 110px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: #91a197; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: #4d9b70; background: white; box-shadow: 0 0 0 4px #4d9b7024; }
+.servicio {
+    display: flex; align-items: center; gap: 14px; margin: 9px 0; padding: 15px 16px;
+    border: 1px solid var(--borde); border-radius: 13px; background: #fcfefc; cursor: pointer;
+    transition: transform .15s, border-color .15s, background .15s;
+}
+.servicio:hover { border-color: #9fc9ad; background: #f4fbf6; transform: translateY(-1px); }
+.servicio:has(input:checked) { border-color: #5ca779; background: var(--verde-claro); }
+.servicio input { width: 19px; min-height: 19px; height: 19px; margin: 0; flex-shrink: 0; accent-color: var(--verde); cursor: pointer; }
+.servicio span { flex: 1; font-weight: 550; }
+.servicio strong { color: var(--verde); white-space: nowrap; font-size: .98rem; }
+.resumen { border-top: 5px solid var(--verde); }
+#datos-resumen, #detalle-precios { padding: 14px 16px; border-radius: 12px; background: #f6faf7; }
+#datos-resumen p, #detalle-precios p { margin: 5px 0; overflow-wrap: anywhere; }
+#datos-resumen p { color: #455d4b; }
+#detalle-precios { margin-top: 12px; }
+.total { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--borde); font-size: 1.08rem; }
+#precio-total { color: var(--verde); font-size: clamp(1.4rem, 4vw, 1.8rem); }
+button {
+    width: 100%; min-height: 50px; margin-top: 20px; padding: 13px 18px; border: 0; border-radius: 12px;
+    background: var(--verde); color: white; font: inherit; font-weight: 700; cursor: pointer;
+    box-shadow: 0 7px 16px #2676532e; transition: background .2s, transform .2s, box-shadow .2s;
+}
+button:hover { background: var(--verde-oscuro); transform: translateY(-1px); box-shadow: 0 9px 20px #2676533d; }
+button:focus-visible { outline: 3px solid #8ccba2; outline-offset: 3px; }
+.respuesta-generada { margin-top: 22px; padding: 22px; border: 1px solid #b9dec5; border-radius: 15px; background: #f1faf4; animation: aparecer .25s ease-out; }
+.respuesta-generada h3 { margin: 0 0 12px; color: var(--verde-oscuro); }
+.respuesta-generada p { margin: 7px 0; overflow-wrap: anywhere; }
+.respuesta-generada .respuesta-total { margin-top: 15px; padding-top: 12px; border-top: 1px solid #cfe5d5; color: var(--verde-oscuro); font-size: 1.15rem; font-weight: 800; }
+.boton-secundario { border: 1px solid #9fc9ad; background: white; color: var(--verde-oscuro); box-shadow: none; }
+.boton-secundario:hover { background: #e2f3e7; color: var(--verde-oscuro); box-shadow: none; }
+footer { padding: 24px 18px 30px; text-align: center; color: var(--suave); font-size: .9rem; }
+footer p { margin: 4px 0; }
+[hidden] { display: none !important; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 700px) {
+    #formulario-perro { display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; }
+    #formulario-perro .campo:has(#descripcion) { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+    .encabezado { padding: 38px 18px 42px; } .contenedor { width: 94%; margin-top: 20px; }
+    .tarjeta { border-radius: 16px; padding: 20px 16px; }
+    .servicio { gap: 10px; padding: 13px 11px; font-size: .93rem; }
+    .servicio strong { font-size: .9rem; }
+    .total { align-items: flex-start; flex-direction: column; gap: 2px; }
+}
+@media print {
+    body { background: white; }
+    .encabezado { padding: 18px; color: black; background: white; }
+    .encabezado p { color: black; }
+    .contenedor > section:not(.resumen), .resumen > h2, .resumen > #datos-resumen,
+    .resumen > #detalle-precios, .resumen > .total, .resumen > #boton-resumen,
+    .boton-secundario, footer { display: none !important; }
+    .contenedor { width: 100%; margin: 0; }
+    .tarjeta, .respuesta-generada { border: 0; box-shadow: none; background: white; }
+    .respuesta-generada { display: block !important; }
+}

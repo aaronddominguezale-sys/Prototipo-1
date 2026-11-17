@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PawCare | Cuidado canino</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="encabezado">
+        <h1>🐾 PawCare</h1>
+        <p>El cuidado que tu mejor amigo merece</p>
+    </header>
+
+    <main class="contenedor">
+
+        <!-- REGISTRO DEL PERRO -->
+        <section class="tarjeta">
+
+            <h2>1. Datos de tu perro</h2>
+
+            <form id="formulario-perro">
+
+                <div class="campo">
+                    <label for="nombre">Nombre del perro</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ej. Max"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="raza">Raza</label>
+
+                    <select id="raza" required>
+                        <option value="">Selecciona una raza</option>
+                        <option value="Labrador">Labrador</option>
+                        <option value="Pastor alemán">Pastor alemán</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="Poodle">Poodle</option>
+                        <option value="Golden Retriever">Golden Retriever</option>
+                        <option value="Husky siberiano">Husky siberiano</option>
+                        <option value="Mestizo">Mestizo</option>
+                        <option value="Otra">Otra</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="peso">Peso (kg)</label>
+
+                    <input
+                        type="number"
+                        id="peso"
+                        min="0.1"
+                        max="150"
+                        step="0.1"
+                        placeholder="Ej. 12.5"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="edad">Edad (años)</label>
+
+                    <input
+                        type="number"
+                        id="edad"
+                        min="0"
+                        max="40"
+                        step="0.1"
+                        placeholder="Ej. 3"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="descripcion">
+                        Descripción y necesidades especiales
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Describe su pelaje, comportamiento o necesidades..."
+                    ></textarea>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- SELECCIÓN DE SERVICIOS -->
+        <section class="tarjeta">
+
+            <h2>2. Servicios de cuidado</h2>
+
+            <p>Selecciona los servicios que necesita tu perro.</p>
+
+            <div id="lista-servicios">
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="bano"
+                    >
+                    <span>Baño</span>
+                    <strong>$150</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="corte"
+                    >
+                    <span>Corte de pelo</span>
+                    <strong>$120</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="antiparasitario"
+                    >
+                    <span>Tratamiento contra pulgas y garrapatas</span>
+                    <strong>$100</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="unas"
+                    >
+                    <span>Corte de uñas</span>
+                    <strong>$50</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="oidos"
+                    >
+                    <span>Limpieza de oídos</span>
+                    <strong>$40</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="dientes"
+                    >
+                    <span>Cepillado de dientes</span>
+                    <strong>$50</strong>
+                </label>
+
+                <label class="servicio">
+                    <input
+                        type="checkbox"
+                        name="servicio"
+                        value="vacuna"
+                    >
+                    <span>Vacunación (requiere valoración veterinaria)</span>
+                    <strong>$200</strong>
+                </label>
+
+            </div>
+
+        </section>
+
+        <!-- CALCULADORA -->
+        <section class="tarjeta resumen">
+
+            <h2>3. Resumen de precios</h2>
+
+            <div id="datos-resumen">
+                <p>Completa los datos de tu perro para comenzar.</p>
+            </div>
+
+            <div id="detalle-precios">
+                <p>Selecciona los servicios que deseas.</p>
+            </div>
+
+            <div class="total">
+                <span>Total estimado:</span>
+                <strong id="precio-total">$0 MXN</strong>
+            </div>
+
+            <button type="button" id="boton-resumen">
+                Generar resumen
+            </button>
+
+            <div id="respuesta-generada" class="respuesta-generada" aria-live="polite" hidden>
+                <h3>Resumen de tu solicitud</h3>
+                <div id="contenido-respuesta"></div>
+                <button type="button" id="boton-imprimir" class="boton-secundario">
+                    Imprimir o guardar resumen
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 PawCare | Cuidado responsable de tu mascota</p>
+        <p>Los precios mostrados son estimaciones de demostración.</p>
+    </footer>
+
+</body>
+</html>
